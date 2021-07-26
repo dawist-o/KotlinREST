@@ -1,4 +1,4 @@
-package com.dawist_o.KotlinREST
+package com.dawist_o
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
