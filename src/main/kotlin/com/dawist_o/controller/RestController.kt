@@ -13,6 +13,9 @@ class RestController(val messageService: MessageService, val userService: UserSe
     @GetMapping("/messages")
     fun getAllMessages() = messageService.findAll()
 
+    @GetMapping("/messages/{id}")
+    fun getMessageById(@PathVariable id: Long) = messageService.findById(id)
+
     @PostMapping("/messages")
     fun postMessage(@RequestBody msg: Message) {
         messageService.post(msg)
@@ -25,4 +28,8 @@ class RestController(val messageService: MessageService, val userService: UserSe
     fun saveUser(@RequestBody user: User) {
         userService.saveUser(user)
     }
+
+    @GetMapping("/users/{id}")
+    fun getUserById(@PathVariable id: Long) = userService.findUserById(id)
+
 }

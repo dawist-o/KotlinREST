@@ -13,4 +13,6 @@ class MessageService(val repository: MessageRepository) {
     fun post(message: Message) {
         repository.save(message)
     }
+
+    fun findById(id: Long) = repository.findById(id)
 }
