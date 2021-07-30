@@ -17,9 +17,9 @@ class UserService(val repository: JdbcTemplate) {
         User(rs.getLong("id"), rs.getInt("age"), rs.getString("name"))
     }
 
-    fun findUserById(id: String): User = repository.query("select * from users where id = ?", id) { rs, _ ->
+    fun findUserById(id: Long): User? = repository.query("select * from users where id = ?", id) { rs, _ ->
         User(rs.getLong("id"), rs.getInt("age"), rs.getString("name"))
-    }.first()
+    }.firstOrNull()
 
     fun saveUser(user: User) {
         repository.update(

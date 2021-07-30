@@ -16,10 +16,11 @@ create unique index if not exists messages_id_uindex
 /*Table for users*/
 create table if not exists users
 (
-    id  bigserial
+    id   bigserial
         constraint users_pk
             primary key,
-    msg text      not null
+    age  int  not null,
+    name text not null
 );
 
 alter table users
