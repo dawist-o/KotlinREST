@@ -34,4 +34,8 @@ class UserService(val repository: JdbcTemplate) {
         return bigInt.toLong()
     }
 
+    fun clearAll() {
+        repository.update("delete from users where id is not null ")
+    }
+
 }
